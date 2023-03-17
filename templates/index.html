@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="static/style.css">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F7F7F7;
+        }
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            color: #555;
+            margin-top: 40px;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            margin-top: 30px;
+        }
+        form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        select {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: #EFEFEF;
+        }
+        input[type="number"], input[type="text"] {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: #EFEFEF;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            font-size: 18px;
+            padding: 10px 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: #555;
+            color: #FFF;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+        a {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to {{name}} page</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN8bxwaCvb8pvOdNHdM0VB7MLJ9vQPaOYLQA&usqp=CAU" width="200" height="200" >
+    <br>
+    
+    <form action="/movies">
+    <select name="option">
+        <option name="Random">Random</o ption>
+        <option name="NMF">NMF</option>
+        <option name="Cosine Similarity">Cosine Similarity</option>
+    </select>
+    <br></br>
+   
+
+    <input name="userid" type="number" placeholder="Enter User ID">
+    <input name="title" type="text" placeholder="Enter movies" list="movies_list">
+    <input name="rating" type="number" placeholder="1-5" min="1" max="5" step="0.1">
+    <br></br>
+ 
+    <input type="submit" value="Show Recommendations">
+    </form>
+    <a href="/movies">Go to next page</a>
+
+    <datalist id="movies_list">
+        {%for movie in movies%}
+        <option>{{movie}}</option>
+        {%endfor%} 
+    </datalist>
+
+</body>
+</html>
