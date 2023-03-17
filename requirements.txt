@@ -1,0 +1,7 @@
+pandas 
+numpy
+surprise
+scikit-learn
+seaborn
+Flask
+gunicorn
